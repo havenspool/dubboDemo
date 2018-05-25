@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!--<bean id="mobileAccountService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">-->
+        <!--<property name="serviceUrl" value="rmi://139.199.186.211:9080/MobileAccountService" />-->
+        <!--<property name="serviceInterface" value="com.wosyx.spring.AccountService" />-->
+    <!--</bean>-->
+
+    <bean id="mobileAccountService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <!--<property name="serviceUrl" value="rmi://192.168.28.55:9080/test" />-->
+        <!--<property name="serviceUrl" value="rmi://139.199.186.211:9080/MobileAccountService" />-->
+        <property name="serviceUrl" value="rmi://139.199.186.211:9080/test" />
+        <!--<property name="serviceUrl" value="rmi://192.168.31.111:9080/test" />-->
+        <property name="serviceInterface" value="com.wosyx.spring.AccountService" />
+        <property name="lookupStubOnStartup" value="false"/> <!-- 不在容器启动的时候创建与Server端的连接 -->
+        <property name="refreshStubOnConnectFailure" value="true"></property> <!-- 表示是否连接出错时自动重连 -->
+    </bean>
+
+</beans>
